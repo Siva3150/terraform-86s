@@ -17,3 +17,12 @@ data "aws_ami" "joindevops" {
     values = ["hvm"]
   }
 }
+
+data "aws_instance" "terraform" {
+    instance_id = "i-09cfc587aaf18a33a"
+}
+
+output "instance_info" {
+    value = data.aws_instance.terraform.public_ip
+  
+}
